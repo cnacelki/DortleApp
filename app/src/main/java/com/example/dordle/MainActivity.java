@@ -116,64 +116,108 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void enter(View view) {
-        String word="";
-        for(int i = 0; i<5; i++){
-            word +=wordles[0][currentrow][i].getText();
-        }
-        Log.d("Word", word);
-        if(words.contains(word)){
-            boolean[] isExist = new boolean[]{false,false,false,false,false};
-            for(int i = 0; i<4; i++){
-                int correctcount=0;
-                Log.d("AAAAAAAAAAA",wordarr[i]);
-                if (iscomplete[i]){
-                    continue;
+        if (currentchar==5) {
+            String word = "";
+            for (int i = 0; i < 5; i++) {
+                if (!iscomplete[0]) {
+                    word += wordles[0][currentrow][i].getText();
+                } else if (!iscomplete[1]) {
+                    word += wordles[1][currentrow][i].getText();
+                } else if (!iscomplete[2]) {
+                    word += wordles[2][currentrow][i].getText();
+                } else if (!iscomplete[3]) {
+                    word += wordles[3][currentrow][i].getText();
                 }
-                char[] wordlechar = new char[5];
-                char[] targetchar = new char[5];
-                for(int j = 0; j<5; j++){
-                    if(wordles[i][currentrow][j].getText().charAt(0) == wordarr[i].charAt(j)){
-                        wordles[i][currentrow][j].setBackgroundResource(R.drawable.true_box);
-                        correctcount+=1;
-                        wordlechar[j]='0';
-                        targetchar[j]='0';
+            }
+            if (words.contains(word)) {
+                boolean[] isExist = new boolean[]{false, false, false, false, false};
+                for (int i = 0; i < 4; i++) {
+                    Log.d("Words:", wordarr[i]);
+                    int correctcount = 0;
+                    if (iscomplete[i]) {
+                        continue;
                     }
-                    else{
-                        wordles[i][currentrow][j].setBackgroundResource(R.drawable.old_kutu);
-                        wordlechar[j]=wordles[i][currentrow][j].getText().charAt(0);
-                        targetchar[j]=wordarr[i].charAt(j);
-                    }
-                    if (correctcount==5){
-                        iscomplete[i]=true;
-                    }
-                    for(int z = 0; z<5; z++){
-                        for(int q = 0; q<5; q++){
-                            if(wordlechar[z]==targetchar[q] && wordlechar[z]!='0'){
-                                wordles[i][currentrow][z].setBackgroundResource(R.drawable.false_location);
-                                wordlechar[z]='0';
-                                targetchar[q]='0';
+                    char[] wordlechar = new char[5];
+                    char[] targetchar = new char[5];
+                    for (int j = 0; j < 5; j++) {
+                        if (wordles[i][currentrow][j].getText().charAt(0) == wordarr[i].charAt(j)) {
+                            wordles[i][currentrow][j].setBackgroundResource(R.drawable.true_box);
+                            correctcount += 1;
+                            wordlechar[j] = '0';
+                            targetchar[j] = '0';
+                        } else {
+                            wordles[i][currentrow][j].setBackgroundResource(R.drawable.old_kutu);
+                            wordlechar[j] = wordles[i][currentrow][j].getText().charAt(0);
+                            targetchar[j] = wordarr[i].charAt(j);
+                        }
+                        if (correctcount == 5) {
+                            iscomplete[i] = true;
+                        }
+                        for (int z = 0; z < 5; z++) {
+                            for (int q = 0; q < 5; q++) {
+                                if (wordlechar[z] == targetchar[q] && wordlechar[z] != '0') {
+                                    wordles[i][currentrow][z].setBackgroundResource(R.drawable.false_location);
+                                    wordlechar[z] = '0';
+                                    targetchar[q] = '0';
+                                }
                             }
                         }
                     }
-                }
-                for(int z = 0; z<5; z++){
-                    Log.d("CHAR", String.format("%s",wordlechar[z]));
-                    if(wordlechar[z]=='0'){
-                        isExist[z]=true;
+                    for (int z = 0; z < 5; z++) {
+                        if (wordlechar[z] == '0') {
+                            isExist[z] = true;
+                        }
                     }
                 }
+
+                for (int z = 0; z < 5; z++) {
+                    if (isExist[z] == false) {
+                        String str = String.format("%s", word.charAt(z));
+                        int resID = getResources().getIdentifier(str, "id", getPackageName());
+                        TextView txt = findViewById(resID);
+                        txt.setBackgroundResource(R.drawable.old_kutu);
+                    }
+                }
+                currentrow += 1;
+                currentchar = 0;
             }
-            for(int z = 0; z<5; z++) {
-                if(isExist[z]==false){
-                    String str = String.format("%s", word.charAt(z));
-                    Log.d("AAAAAAAAAAAAAAAA",str);
-                    int resID = getResources().getIdentifier(str, "id", getPackageName());
-                    TextView txt = findViewById(resID);
-                    txt.setBackgroundResource(R.drawable.old_kutu);
+            int count = 0;
+            for (int z = 0; z < 4; z++) {
+
+                if (iscomplete[z]) {
+                    count += 1;
+                }
+                if (count == 4) {
+                    restartGame();
                 }
             }
-            currentrow += 1;
-            currentchar = 0;
+        }
+    }
+
+    private void restartGame() {
+        for(int z = 0; z<4; z++) {
+            for(int i = 0; i<9;i++){
+                for(int j = 0; j<5;j++){
+                    wordles[z][i][j].setText(" ");
+                    wordles[z][i][j].setBackgroundResource(R.drawable.wordle_kutu);
+                    iscomplete[0]=false;
+                    iscomplete[1]=false;
+                    iscomplete[3]=false;
+                    iscomplete[2]=false;
+                    currentchar=0;
+                    currentrow=0;
+                    Random rand= new Random();
+                    int randint = rand.nextInt(valids.length);
+                    word1 = valids[randint];
+                    randint = rand.nextInt(valids.length);
+                    word2 = valids[randint];
+                    randint = rand.nextInt(valids.length);
+                    word3 = valids[randint];
+                    randint = rand.nextInt(valids.length);
+                    word4 = valids[randint];
+                    wordarr= new String[]{word1,word2,word3,word4};
+                }
+            }
         }
     }
 
