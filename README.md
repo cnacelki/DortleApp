@@ -1,4 +1,4 @@
-# DortleApp
+# DörtleApp
 Popüler kelime oyunu Worlde'ın ikili versiyonu Dordle'ın dörtlü versiyonu Quordle'ın Türkçe versiyonu olan Dörtle'nin mobil uygulama versiyonu!
 
 
