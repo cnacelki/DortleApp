@@ -1,11 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-    <android.inputmethodservice.KeyboardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1F2937">
 
-    </android.inputmethodservice.KeyboardView>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
 
+        android:gravity="center"
+        android:text="Dörtle Sonuçların!"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <TextView
+        android:id="@+id/wordle1resulttext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+
+        android:gravity="center"
+        android:text=""
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle4result"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/wordle4result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle4result" />
+
+    <TextView
+        android:id="@+id/wordle2resulttext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle2result"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/wordle2result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle2result" />
+
+    <TextView
+        android:id="@+id/wordle3resulttext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle3result"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/wordle3result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle3result" />
+
+    <TextView
+        android:id="@+id/wordle4resulttext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle1result"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/wordle1result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle1result" />
+
+    <TextView
+        android:id="@+id/wordle1result"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/true_box"
+        android:gravity="center"
+        android:text=""
+        android:textSize="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle2result"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/wordle2result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle2result"></TextView>
+
+    <TextView
+        android:id="@+id/wordle4result"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/true_box"
+        android:gravity="center"
+        android:text=""
+        android:textSize="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"></TextView>
+
+    <TextView
+        android:id="@+id/wordle3result"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/false_box"
+        android:gravity="center"
+        android:text=""
+        android:textSize="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/wordle4result"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/wordle4result"
+        app:layout_constraintTop_toBottomOf="@+id/wordle4result"></TextView>
+
+    <TextView
+        android:id="@+id/wordle2result"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/false_box"
+        android:gravity="center"
+        android:text=""
+        android:textSize="70dp"
+        app:layout_constraintStart_toEndOf="@+id/wordle4result"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"></TextView>
+
+    <Button
+        android:id="@+id/dismiss"
+        android:layout_width="137dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/old_kutu"
+        android:text="Yeniden Başlat"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

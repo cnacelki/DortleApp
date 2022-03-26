@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/false_box.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/false_location.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/old_kutu.xml" value="0.12395833333333334" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/true_box.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/winscreen.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/drawable/wordle_kutu.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Dordle/app/src/main/res/layout/secondlayout.xml" value="0.25" />

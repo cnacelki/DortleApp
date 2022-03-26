@@ -9,10 +9,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     String word2;
     String word3;
     String word4;
+    int[] results = new int[]{0,0,0,0};
     boolean[] iscomplete = new boolean[]{false,false,false,false};
     String[] wordarr;
     int currentrow;
@@ -178,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
                             targetchar[j] = wordarr[i].charAt(j);
                         }
                         if (correctcount == 5) {
+                            results[i]=currentrow+1;
                             iscomplete[i] = true;
                         }
                         for (int z = 0; z < 5; z++) {
@@ -215,10 +221,82 @@ public class MainActivity extends AppCompatActivity {
                     count += 1;
                 }
                 if (count == 4) {
-                    restartGame();
+                    resultScreen();
                 }
             }
+            if (currentrow==9){
+
+                resultScreen();
+            }
         }
+    }
+
+    private void resultScreen() {
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.secondlayout, null);
+
+        // create the popup window
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.MATCH_PARENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(this.findViewById(R.id.wordle1), Gravity.CENTER, 0, 0);
+        TextView txt = popupView.findViewById(R.id.wordle1resulttext);
+        txt.setText(String.format("%s", wordarr[0]));
+        txt = popupView.findViewById(R.id.wordle2resulttext);
+        txt.setText(String.format("%s", wordarr[1]));
+        txt = popupView.findViewById(R.id.wordle3resulttext);
+        txt.setText(String.format("%s", wordarr[2]));
+        txt = popupView.findViewById(R.id.wordle4resulttext);
+        txt.setText(String.format("%s", wordarr[3]));
+        if (results[0]==0){
+            TextView tx= popupView.findViewById(R.id.wordle4result);
+            tx.setBackgroundResource(R.drawable.false_box);
+        }
+        else {
+            TextView tx= popupView.findViewById(R.id.wordle4result);
+            tx.setBackgroundResource(R.drawable.true_box);
+            tx.setText(String.format("%s", results[0]));
+        }
+        if (results[1]==0){
+            TextView tx= popupView.findViewById(R.id.wordle2result);
+            tx.setBackgroundResource(R.drawable.false_box);
+        }
+        else {
+            TextView tx= popupView.findViewById(R.id.wordle2result);
+            tx.setBackgroundResource(R.drawable.true_box);
+            tx.setText(String.format("%s", results[1]));
+        }
+        if (results[2]==0){
+            TextView tx= popupView.findViewById(R.id.wordle3result);
+            tx.setBackgroundResource(R.drawable.false_box);
+        }
+        else {
+            TextView tx= popupView.findViewById(R.id.wordle3result);
+            tx.setBackgroundResource(R.drawable.true_box);
+            tx.setText(String.format("%s", results[2]));
+        }
+        if (results[3]==0){
+            TextView tx= popupView.findViewById(R.id.wordle1result);
+            tx.setBackgroundResource(R.drawable.false_box);
+        }
+        else {
+            TextView tx= popupView.findViewById(R.id.wordle1result);
+            tx.setBackgroundResource(R.drawable.true_box);
+            tx.setText(String.format("%s", results[3]));
+        }
+        Button btn =popupView.findViewById(R.id.dismiss);
+        btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                popupWindow.dismiss();
+            }
+        });
+        restartGame();
     }
 
     private void restartGame() {
@@ -227,6 +305,10 @@ public class MainActivity extends AppCompatActivity {
                 for(int j = 0; j<5;j++){
                     wordles[z][i][j].setText(" ");
                     wordles[z][i][j].setBackgroundResource(R.drawable.wordle_kutu);
+                    results[0]=0;
+                    results[1]=0;
+                    results[2]=0;
+                    results[3]=0;
                     iscomplete[0]=false;
                     iscomplete[1]=false;
                     iscomplete[3]=false;
@@ -247,4 +329,5 @@ public class MainActivity extends AppCompatActivity {
         wordles[2][currentrow][currentchar].setText(" ");
         wordles[3][currentrow][currentchar].setText(" ");
     }
+
 }
