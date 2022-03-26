@@ -5,7 +5,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="554dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
@@ -63,12 +64,12 @@
         android:layout_width="match_parent"
         android:background="#1F2937"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:paddingTop="7dp">
-
             <TextView
                 android:layout_width="33dp"
                 android:layout_height="wrap_content"
@@ -80,7 +81,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="W"
@@ -89,7 +90,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="E"
@@ -98,7 +99,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="R"
@@ -107,7 +108,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="T"
@@ -116,7 +117,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Y"
@@ -125,7 +126,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="U"
@@ -134,7 +135,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="I"
@@ -143,7 +144,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="O"
@@ -152,7 +153,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:id="@+id/P"
@@ -161,7 +162,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Ğ"
@@ -170,7 +171,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Ü"
@@ -183,19 +184,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:paddingTop="7dp"
-            android:layout_height="60dp">
+            android:gravity="center"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginLeft="20dp"
                 android:text="A"
                 android:id="@+id/A"
                 android:textColor="@color/white"
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="S"
@@ -204,7 +205,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="D"
@@ -213,7 +214,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="F"
@@ -222,7 +223,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="G"
@@ -231,7 +232,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="H"
@@ -240,7 +241,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="J"
@@ -249,7 +250,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="K"
@@ -258,7 +259,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="L"
@@ -267,7 +268,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Ş"
@@ -276,7 +277,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="İ"
@@ -288,10 +289,10 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-
-            android:layout_height="60dp">
+            android:gravity="center"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:paddingTop="7dp"
                 android:text="⌫"
@@ -301,7 +302,7 @@
                 android:onClick="delete"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -311,7 +312,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -321,7 +322,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="C"
@@ -331,7 +332,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="V"
@@ -341,7 +342,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -351,7 +352,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -362,7 +363,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -372,7 +373,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -382,7 +383,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="7dp"
@@ -392,7 +393,7 @@
                 android:onClick="getChar"
                 android:textSize="30dp"></TextView>
             <TextView
-                android:layout_width="34dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="↩"

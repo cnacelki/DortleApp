@@ -14,6 +14,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -42,17 +53,33 @@ public class MainActivity extends AppCompatActivity {
         wordle2 = findViewById(R.id.wordle2);
         wordle3 = findViewById(R.id.wordle3);
         wordle4 = findViewById(R.id.wordle4);
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://mrtrncbr-daily-words-api.herokuapp.com";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonRes = new JSONObject(response);
+                    JSONArray wordarray= jsonRes.getJSONArray("words");
+                    word1=wordarray.getString(0);
+                    word2=wordarray.getString(1);
+                    word3=wordarray.getString(2);
+                    word4=wordarray.getString(3);
+                    wordarr= new String[]{word1,word2,word3,word4};
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("AAAAAAAAAAAA","AAAAA");
+            }
+        });
+        queue.add(stringRequest);
         createBoard();
-        Random rand = new Random();
-        int randint = rand.nextInt(valids.length);
-        word1 = valids[randint];
-        randint = rand.nextInt(valids.length);
-        word2 = valids[randint];
-        randint = rand.nextInt(valids.length);
-        word3 = valids[randint];
-        randint = rand.nextInt(valids.length);
-        word4 = valids[randint];
-        wordarr= new String[]{word1,word2,word3,word4};
+
     }
 
     private void createBoard() {
@@ -206,16 +233,6 @@ public class MainActivity extends AppCompatActivity {
                     iscomplete[2]=false;
                     currentchar=0;
                     currentrow=0;
-                    Random rand= new Random();
-                    int randint = rand.nextInt(valids.length);
-                    word1 = valids[randint];
-                    randint = rand.nextInt(valids.length);
-                    word2 = valids[randint];
-                    randint = rand.nextInt(valids.length);
-                    word3 = valids[randint];
-                    randint = rand.nextInt(valids.length);
-                    word4 = valids[randint];
-                    wordarr= new String[]{word1,word2,word3,word4};
                 }
             }
         }
