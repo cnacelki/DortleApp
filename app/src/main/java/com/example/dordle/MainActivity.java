@@ -236,14 +236,12 @@ public class MainActivity extends AppCompatActivity {
                 getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.secondlayout, null);
 
-        // create the popup window
+
         int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.MATCH_PARENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
+        boolean focusable = true;
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
 
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window tolken
         popupWindow.showAtLocation(this.findViewById(R.id.wordle1), Gravity.CENTER, 0, 0);
         TextView txt = popupView.findViewById(R.id.wordle1resulttext);
         txt.setText(String.format("%s", wordarr[0]));
